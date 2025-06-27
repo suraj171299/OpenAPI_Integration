@@ -13,6 +13,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/open-ai', chatRoutes)
 
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'widget.html'))
+})
 const PORT = process.env.PORT || 8080
 
 app.listen(PORT, () => {
