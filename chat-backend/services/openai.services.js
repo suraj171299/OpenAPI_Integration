@@ -4,8 +4,6 @@ const createThreadIfNotExists = async (threadId) => {
     return threadId || (await openai.beta.threads.create()).id
 }
 
-console.log(createThreadIfNotExists);
-
 const sendMessageThread = async (threadId, message) => {
     await openai.beta.threads.messages.create(threadId, {
         role: "user",
